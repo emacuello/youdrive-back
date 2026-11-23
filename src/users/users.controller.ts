@@ -15,14 +15,14 @@ import {
   UseGuards,
   Patch,
 } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { UsersService } from './users.service.js';
+import { UpdateUserDto } from './dto/update-user.dto.js';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { RolesGuard } from './utils/roles.guard';
-import { Role } from './utils/roles.enum';
-import { Roles } from './utils/roles.decorator';
-import { CustomHeaderGuard } from 'src/middleweare/protectedEndpoints.guard';
+import { RolesGuard } from './utils/roles.guard.js';
+import { Role } from './utils/roles.enum.js';
+import { Roles } from './utils/roles.decorator.js';
+import { CustomHeaderGuard } from '../middleweare/protectedEndpoints.guard.js';
 
 @ApiTags('USERS')
 @Controller('users')

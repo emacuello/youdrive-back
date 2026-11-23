@@ -4,15 +4,15 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { CreateChatDto } from './dto/create-chat.dto';
+import { CreateChatDto } from './dto/create-chat.dto.js';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Chat } from './entities/chat.entity';
-import { User } from 'src/users/entities/user.entity';
-import { Posts } from 'src/posts/entities/post.entity';
-import { MessageChat } from './interfaces/usersChat.interfaces';
+import { Chat } from './entities/chat.entity.js';
+import { User } from '../users/entities/user.entity.js';
+import { Posts } from '../posts/entities/post.entity.js';
+import { MessageChat } from './interfaces/usersChat.interfaces.js';
 import { JwtService } from '@nestjs/jwt';
-import { JwtPayload } from 'src/rentals/interfaces/payload.interfaces';
+import { JwtPayload } from '../rentals/interfaces/payload.interfaces.js';
 
 @Injectable()
 export class ChatService {

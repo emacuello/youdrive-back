@@ -1,9 +1,9 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { CreatePostDto } from './create-post.dto';
+import { CreatePostDto } from './create-post.dto.js';
 
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsNumber, IsOptional, IsString, Min } from 'class-validator';
-import { NoProfanity } from '../decorators/wordValidator.decorator';
+import { NoProfanity } from '../decorators/wordValidator.decorator.js';
 
 export class UpdatePostDto extends PartialType(CreatePostDto) {
   @IsArray()

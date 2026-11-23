@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { NotificationsService } from './notifications.service';
+import { NotificationsService } from './notifications.service.js';
 import cron from 'node-cron';
 
 @Injectable()

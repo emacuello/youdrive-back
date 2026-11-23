@@ -7,7 +7,7 @@ import {
   ValidatorConstraintInterface,
   ValidationArguments,
 } from 'class-validator';
-import * as leoProfanity from 'leo-profanity';
+import leoProfanity from 'leo-profanity';
 
 @Injectable()
 @ValidatorConstraint({ async: false })

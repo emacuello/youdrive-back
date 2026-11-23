@@ -8,11 +8,11 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
-import { NotificationsService } from './notifications.service';
-import { CreateNotificationDto } from './dto/create-notification.dto';
-import { UpdateNotificationDto } from './dto/update-notification.dto';
+import { NotificationsService } from './notifications.service.js';
+import { CreateNotificationDto } from './dto/create-notification.dto.js';
+import { UpdateNotificationDto } from './dto/update-notification.dto.js';
 import { ApiTags } from '@nestjs/swagger';
-import { RolesGuard } from 'src/users/utils/roles.guard';
+import { RolesGuard } from '../users/utils/roles.guard.js';
 
 @ApiTags('NOTIFICATIONS')
 @Controller('notifications')

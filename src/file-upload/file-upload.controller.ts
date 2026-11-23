@@ -11,13 +11,13 @@ import {
   UploadedFiles,
   UseGuards /* UseGuards */,
 } from '@nestjs/common';
-import { FileUploadService } from './file-upload.service';
+import { FileUploadService } from './file-upload.service.js';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { ApiTags } from '@nestjs/swagger';
-import { Roles } from 'src/users/utils/roles.decorator';
-import { RolesGuard } from 'src/users/utils/roles.guard';
-import { Role } from 'src/users/utils/roles.enum';
-// import { RolesGuard } from 'src/users/utils/roles.guard';
+import { Roles } from '../users/utils/roles.decorator.js';
+import { RolesGuard } from '../users/utils/roles.guard.js';
+import { Role } from '../users/utils/roles.enum.js';
+// import { RolesGuard } from '../users/utils/roles.guard.js';
 
 @ApiTags('FILES')
 @Controller('files')

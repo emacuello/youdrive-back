@@ -1,23 +1,24 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { UsersModule } from './users/users.module';
-import { RentalsModule } from './rentals/rentals.module';
-import { AddressesModule } from './addresses/addresses.module';
-import { CarsModule } from './cars/cars.module';
-import { ReviewsModule } from './reviews/reviews.module';
-import { ConfigModuleRoot } from './config/config.module';
-import { ConfigTypOrmModule } from './config/configTypOrm.module';
-import { PostsModule } from './posts/posts.module';
-import { NotificationsModule } from './notifications/notifications.module';
-import { FileUploadModule } from './file-upload/file-upload.module';
-import { MailModule } from './mail/mail.module';
+import { UsersModule } from './users/users.module.js';
+import { RentalsModule } from './rentals/rentals.module.js';
+import { AddressesModule } from './addresses/addresses.module.js';
+import { CarsModule } from './cars/cars.module.js';
+import { ReviewsModule } from './reviews/reviews.module.js';
+import { ConfigModuleRoot } from './config/config.module.js';
+import { ConfigTypOrmModule } from './config/configTypOrm.module.js';
+import { PostsModule } from './posts/posts.module.js';
+import { NotificationsModule } from './notifications/notifications.module.js';
+import { FileUploadModule } from './file-upload/file-upload.module.js';
+import { MailModule } from './mail/mail.module.js';
 import morgan from 'morgan';
-import { AuthModule } from './auth/auth.module';
-import { JwtConfigModule } from './config/jwt.module';
+import { AuthModule } from './auth/auth.module.js';
+import { JwtConfigModule } from './config/jwt.module.js';
 import { PassportModule } from '@nestjs/passport';
-import { ChatModule } from './chat/chat.module';
-import { searchModule } from './search/search.module';
-import { ProfanityFilterService } from './profinafy.service';
-import { ProfanityValidator } from './posts/decorators/wordValidator.decorator';
+import { ChatModule } from './chat/chat.module.js';
+import { searchModule } from './search/search.module.js';
+import { ProfanityFilterService } from './profinafy.service.js';
+import { ProfanityValidator } from './posts/decorators/wordValidator.decorator.js';
+import { DemoSeedService } from './seed/demo-seed.service.js';
 
 @Module({
   imports: [
@@ -39,7 +40,7 @@ import { ProfanityValidator } from './posts/decorators/wordValidator.decorator';
     searchModule,
   ],
   controllers: [],
-  providers: [ProfanityFilterService, ProfanityValidator],
+  providers: [ProfanityFilterService, ProfanityValidator, DemoSeedService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

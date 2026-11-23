@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from 'src/users/entities/user.entity';
-import { Posts } from 'src/posts/entities/post.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, type Relation } from 'typeorm';
+import { User } from '../../users/entities/user.entity.js';
+import { Posts } from '../../posts/entities/post.entity.js';
 
 @Entity()
 export class Chat {
@@ -8,15 +8,15 @@ export class Chat {
   id: string;
 
   @ManyToOne(() => User, { eager: true, onDelete: 'CASCADE', cascade: true })
-  sender: User;
+  sender: Relation<User>;
 
   @ManyToOne(() => User, { eager: true, onDelete: 'CASCADE', cascade: true })
-  receiver: User;
+  receiver: Relation<User>;
 
   @ManyToOne(() => Posts, (post) => post.room_id, {
     onDelete: 'CASCADE',
   })
-  post: Posts;
+  post: Relation<Posts>;
 
   @Column({ type: 'text' })
   message: string;

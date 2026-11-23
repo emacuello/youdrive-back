@@ -1,9 +1,9 @@
-import { Address } from 'src/addresses/entities/address.entity';
-import { Car } from 'src/cars/entities/car.entity';
-import { Notification } from 'src/notifications/entities/notification.entity';
-import { Posts } from 'src/posts/entities/post.entity';
-import { Rental } from 'src/rentals/entities/rental.entity';
-import { Review } from 'src/reviews/entities/review.entity';
+import { Address } from '../../addresses/entities/address.entity.js';
+import { Car } from '../../cars/entities/car.entity.js';
+import { Notification } from '../../notifications/entities/notification.entity.js';
+import { Posts } from '../../posts/entities/post.entity.js';
+import { Rental } from '../../rentals/entities/rental.entity.js';
+import { Review } from '../../reviews/entities/review.entity.js';
 import {
   Entity,
   Column,
@@ -12,8 +12,7 @@ import {
   UpdateDateColumn,
   OneToMany,
   JoinColumn,
-  ManyToMany,
-} from 'typeorm';
+  ManyToMany, type Relation } from 'typeorm';
 
 @Entity('users')
 export class User {
@@ -65,19 +64,19 @@ export class User {
   isDeleted: boolean;
 
   @ManyToMany(() => Rental, (rental) => rental.users)
-  rentals: Rental[];
+  rentals: Relation<Rental[]>;
 
   @OneToMany(() => Notification, (notification) => notification.user, {
     cascade: true,
   })
   @JoinColumn()
-  notifications: Notification[];
+  notifications: Relation<Notification[]>;
 
   @OneToMany(() => Address, (address) => address.user, {
     cascade: true,
   })
   @JoinColumn()
-  addresses: Address[];
+  addresses: Relation<Address[]>;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
@@ -88,12 +87,12 @@ export class User {
   //Para la tablar User desde Posts:
   @OneToMany(() => Posts, (post) => post.user)
   @JoinColumn({ name: 'userId', referencedColumnName: 'id' })
-  post: Posts[];
+  post: Relation<Posts[]>;
 
   @OneToMany(() => Car, (car) => car.user)
   @JoinColumn({ name: 'userId', referencedColumnName: 'id' })
-  car: Car;
+  car: Relation<Car>;
 
   @OneToMany(() => Review, (review) => review.user)
-  reviews: Review[];
+  reviews: Relation<Review[]>;
 }

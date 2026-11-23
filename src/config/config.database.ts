@@ -15,7 +15,8 @@ const configDatabase = {
   logging: true,
   // dropSchema: true,
   migrations: ['dist/migrations/*.{ts,js}'],
-  ssl: true,
+  // El Postgres del VPS va por la red interna, sin SSL; Railway lo exigía.
+  ssl: process.env.DB_SSL === 'true',
 };
 
 export default registerAs('database', () => configDatabase);

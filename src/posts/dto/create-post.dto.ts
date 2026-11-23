@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsNotEmpty, IsNumber, IsString, Length } from 'class-validator';
-import { NoProfanity } from '../decorators/wordValidator.decorator';
+import { NoProfanity } from '../decorators/wordValidator.decorator.js';
 
 export class CreatePostDto {
   //characteristics of the Posts

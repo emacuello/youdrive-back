@@ -1,15 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto.js';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
-import { FileUploadService } from 'src/file-upload/file-upload.service';
+import { User } from './entities/user.entity.js';
+import { FileUploadService } from '../file-upload/file-upload.service.js';
 import { JwtService } from '@nestjs/jwt';
-import { JwtPayload } from 'src/rentals/interfaces/payload.interfaces';
-import { Address } from 'src/addresses/entities/address.entity';
-import { UpdateAddressDto } from 'src/addresses/dto/update-address.dto';
-import * as bcrypt from 'bcrypt';
-import { AddressesService } from 'src/addresses/addresses.service';
+import { JwtPayload } from '../rentals/interfaces/payload.interfaces.js';
+import { Address } from '../addresses/entities/address.entity.js';
+import { UpdateAddressDto } from '../addresses/dto/update-address.dto.js';
+import bcrypt from 'bcryptjs';
+import { AddressesService } from '../addresses/addresses.service.js';
 
 @Injectable()
 export class UsersService {

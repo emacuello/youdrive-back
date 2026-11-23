@@ -1,12 +1,12 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { CreateCarDto } from './dto/create-cars.dto';
-import { UpdateCarDto } from './dto/update-cars.dto';
+import { CreateCarDto } from './dto/create-cars.dto.js';
+import { UpdateCarDto } from './dto/update-cars.dto.js';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Car } from './entities/car.entity';
+import { Car } from './entities/car.entity.js';
 import { Repository } from 'typeorm';
-import { FileUploadService } from 'src/file-upload/file-upload.service';
-import { User } from 'src/users/entities/user.entity';
-import { Posts } from 'src/posts/entities/post.entity';
+import { FileUploadService } from '../file-upload/file-upload.service.js';
+import { User } from '../users/entities/user.entity.js';
+import { Posts } from '../posts/entities/post.entity.js';
 export interface FiltersCars {
   brand: string;
   model: string;

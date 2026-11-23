@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Profile, Strategy } from 'passport-google-oauth20';
-import { AuthService } from '../auth.service';
-import * as dotenv from 'dotenv';
-import { PayloadGoogleType } from '../types/response.interfaces';
+import { AuthService } from '../auth.service.js';
+import dotenv from 'dotenv';
+import { PayloadGoogleType } from '../types/response.interfaces.js';
 
 dotenv.config();
 
@@ -31,6 +31,6 @@ export class GoogleStrategy extends PassportStrategy(Strategy) {
       email: profile.emails[0].value,
       displayName: profile.displayName,
     });
-    return { token, payload } || null;
+    return { token, payload };
   }
 }

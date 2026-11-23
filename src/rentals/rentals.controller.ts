@@ -13,15 +13,15 @@ import {
   UnauthorizedException,
   UseGuards,
 } from '@nestjs/common';
-import { RentalsService } from './rentals.service';
-import { CreateRentalDto } from './dto/create-rental.dto';
-import { UpdateRentalDto } from './dto/update-rental.dto';
-import { Response } from 'express';
+import { RentalsService } from './rentals.service.js';
+import { CreateRentalDto } from './dto/create-rental.dto.js';
+import { UpdateRentalDto } from './dto/update-rental.dto.js';
+import type { Response } from 'express';
 import { ApiBearerAuth } from '@nestjs/swagger';
-import { Roles } from 'src/users/utils/roles.decorator';
-import { Role } from 'src/users/utils/roles.enum';
-import { RolesGuard } from 'src/users/utils/roles.guard';
-import { CustomHeaderGuard } from 'src/middleweare/protectedEndpoints.guard';
+import { Roles } from '../users/utils/roles.decorator.js';
+import { Role } from '../users/utils/roles.enum.js';
+import { RolesGuard } from '../users/utils/roles.guard.js';
+import { CustomHeaderGuard } from '../middleweare/protectedEndpoints.guard.js';
 
 @Controller('rentals')
 export class RentalsController {

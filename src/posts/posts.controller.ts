@@ -17,17 +17,17 @@ import {
   Patch,
   UseGuards,
 } from '@nestjs/common';
-import { PostsService } from './posts.service';
-import { CreatePostDto } from './dto/create-post.dto';
-import { UpdatePostDto } from './dto/update-post.dto';
+import { PostsService } from './posts.service.js';
+import { CreatePostDto } from './dto/create-post.dto.js';
+import { UpdatePostDto } from './dto/update-post.dto.js';
 import { FilesInterceptor } from '@nestjs/platform-express';
-import { FiltersPosts } from './interfaces/filter.interfaces';
+import type { FiltersPosts } from './interfaces/filter.interfaces.js';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { Role } from 'src/users/utils/roles.enum';
-import { Roles } from 'src/users/utils/roles.decorator';
-import { RolesGuard } from 'src/users/utils/roles.guard';
-import { CustomHeaderGuard } from 'src/middleweare/protectedEndpoints.guard';
-import { ThrottlerGuard } from '@nestjs/throttler';
+import { Role } from '../users/utils/roles.enum.js';
+import { Roles } from '../users/utils/roles.decorator.js';
+import { RolesGuard } from '../users/utils/roles.guard.js';
+import { CustomHeaderGuard } from '../middleweare/protectedEndpoints.guard.js';
+import { RateLimitGuard } from '../common/rate-limit.guard.js';
 
 @ApiTags('POSTS')
 @Controller('posts')
@@ -60,7 +60,7 @@ export class PostsController {
   @Post()
   @UseInterceptors(FilesInterceptor('file', 5))
   @Roles(Role.User, Role.Admin, Role.SuperAdmin)
-  @UseGuards(ThrottlerGuard, RolesGuard, CustomHeaderGuard)
+  @UseGuards(RateLimitGuard, RolesGuard, CustomHeaderGuard)
   create(
     @Body() createPostDto: CreatePostDto,
     @Headers('Authorization') headers?: string,
@@ -107,7 +107,7 @@ export class PostsController {
   @Put(':id')
   @UseInterceptors(FilesInterceptor('file', 5))
   @Roles(Role.User, Role.Admin)
-  @UseGuards(ThrottlerGuard, RolesGuard, CustomHeaderGuard)
+  @UseGuards(RateLimitGuard, RolesGuard, CustomHeaderGuard)
   putPostsById(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() updatePostDto: UpdatePostDto,

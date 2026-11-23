@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { User } from '../users/entities/user.entity';
-import { UsersService } from './users.service';
-import { Address } from 'src/addresses/entities/address.entity';
-import { FileUploadService } from 'src/file-upload/file-upload.service';
-import { AddressesService } from 'src/addresses/addresses.service';
+import { User } from './entities/user.entity.js';
+import { UsersService } from './users.service.js';
+import { Address } from '../addresses/entities/address.entity.js';
+import { FileUploadService } from '../file-upload/file-upload.service.js';
+import { AddressesService } from '../addresses/addresses.service.js';
 import { JwtService } from '@nestjs/jwt';
 import { NotFoundException } from '@nestjs/common';
 

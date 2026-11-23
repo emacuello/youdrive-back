@@ -4,15 +4,15 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { CreateReviewDto } from './dto/create-review.dto';
-import { UpdateReviewDto } from './dto/update-review.dto';
+import { CreateReviewDto } from './dto/create-review.dto.js';
+import { UpdateReviewDto } from './dto/update-review.dto.js';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/users/entities/user.entity';
-import { Review } from './entities/review.entity';
-import { Posts } from 'src/posts/entities/post.entity';
+import { User } from '../users/entities/user.entity.js';
+import { Review } from './entities/review.entity.js';
+import { Posts } from '../posts/entities/post.entity.js';
 import { JwtService } from '@nestjs/jwt';
 import { Repository } from 'typeorm';
-import { JwtPayload } from 'src/rentals/interfaces/payload.interfaces';
+import { JwtPayload } from '../rentals/interfaces/payload.interfaces.js';
 
 @Injectable()
 export class ReviewsService {

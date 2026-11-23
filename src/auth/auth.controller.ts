@@ -7,15 +7,15 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { CreateUserDto, signIn } from 'src/users/dto/create-user.dto';
-import { GoogleAuthGuard } from './utils/auth.guard';
-import { Request, Response } from 'express';
-import { GoogleStrategy } from './utils/GoogleStrategy';
+import { AuthService } from './auth.service.js';
+import { CreateUserDto, signIn } from '../users/dto/create-user.dto.js';
+import { GoogleAuthGuard } from './utils/auth.guard.js';
+import type { Request, Response } from 'express';
+import { GoogleStrategy } from './utils/GoogleStrategy.js';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-// import { RolesGuard } from 'src/users/utils/roles.guard';
-// import { Role } from 'src/users/utils/roles.enum';
-// import { Roles } from 'src/users/utils/roles.decorator';
+// import { RolesGuard } from '../users/utils/roles.guard.js';
+// import { Role } from '../users/utils/roles.enum.js';
+// import { Roles } from '../users/utils/roles.decorator.js';
 
 @ApiTags('AUTH')
 @Controller('auth')

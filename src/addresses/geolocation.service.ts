@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import fetch from 'cross-fetch';
 
 @Injectable()
 export class geolocationService {

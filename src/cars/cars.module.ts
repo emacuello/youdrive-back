@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { CarsService } from './cars.service';
-import { CarsController } from './cars.controller';
+import { CarsService } from './cars.service.js';
+import { CarsController } from './cars.controller.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Car } from './entities/car.entity';
-import { FileUploadService } from 'src/file-upload/file-upload.service';
-import { User } from 'src/users/entities/user.entity';
-import { Posts } from 'src/posts/entities/post.entity';
-import { UsersModule } from 'src/users/users.module';
+import { Car } from './entities/car.entity.js';
+import { FileUploadService } from '../file-upload/file-upload.service.js';
+import { User } from '../users/entities/user.entity.js';
+import { Posts } from '../posts/entities/post.entity.js';
+import { UsersModule } from '../users/users.module.js';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Car, User, Posts]), UsersModule],

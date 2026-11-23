@@ -1,9 +1,9 @@
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { ReviewsService } from './reviews.service';
-import { User } from 'src/users/entities/user.entity';
-import { Posts } from 'src/posts/entities/post.entity';
+import { ReviewsService } from './reviews.service.js';
+import { User } from '../users/entities/user.entity.js';
+import { Posts } from '../posts/entities/post.entity.js';
 import { Test, TestingModule } from '@nestjs/testing';
-import { Review } from './entities/review.entity';
+import { Review } from './entities/review.entity.js';
 import { JwtService } from '@nestjs/jwt';
 
 describe('ReviewsService', () => {

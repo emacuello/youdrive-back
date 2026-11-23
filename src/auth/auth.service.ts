@@ -4,20 +4,20 @@ import {
   NotAcceptableException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Address } from 'src/addresses/entities/address.entity';
-import { CreateUserDto, signIn } from 'src/users/dto/create-user.dto';
-import { User } from 'src/users/entities/user.entity';
+import { Address } from '../addresses/entities/address.entity.js';
+import { CreateUserDto, signIn } from '../users/dto/create-user.dto.js';
+import { User } from '../users/entities/user.entity.js';
 import { Repository } from 'typeorm';
-import * as bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
-import { UserGoogle } from './types/userGoogle.type';
-import { NotificationsService } from 'src/notifications/notifications.service';
+import { UserGoogle } from './types/userGoogle.type.js';
+import { NotificationsService } from '../notifications/notifications.service.js';
 import {
   PayloadGoogleType /* ResponseGoogle */,
-} from './types/response.interfaces';
-import { JwtPayload } from 'src/rentals/interfaces/payload.interfaces';
-import { AddressesService } from 'src/addresses/addresses.service';
-import { Role } from 'src/users/utils/roles.enum';
+} from './types/response.interfaces.js';
+import { JwtPayload } from '../rentals/interfaces/payload.interfaces.js';
+import { AddressesService } from '../addresses/addresses.service.js';
+import { Role } from '../users/utils/roles.enum.js';
 
 @Injectable()
 export class AuthService {

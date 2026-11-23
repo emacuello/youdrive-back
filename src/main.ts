@@ -1,11 +1,11 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from './app.module.js';
 import { ValidationPipe } from '@nestjs/common';
 import passport from 'passport';
 import session from 'express-session';
-import './notifications/CronJobs.service';
+import './notifications/CronJobs.service.js';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { Logger } from './middleweare/logger';
+import { Logger } from './middleweare/logger.js';
 
 async function bootstrap() {
   const PORT = process.env.PORT_HTTP || 3001;
@@ -44,4 +44,4 @@ async function bootstrap() {
   app.enableCors();
   await app.listen(PORT);
 }
-bootstrap();
+void bootstrap();

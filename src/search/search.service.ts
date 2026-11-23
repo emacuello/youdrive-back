@@ -8,14 +8,14 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
-import { User } from 'src/users/entities/user.entity';
-import { Car } from 'src/cars/entities/car.entity';
-import { Posts } from 'src/posts/entities/post.entity';
+import { User } from '../users/entities/user.entity.js';
+import { Car } from '../cars/entities/car.entity.js';
+import { Posts } from '../posts/entities/post.entity.js';
 import { JwtService } from '@nestjs/jwt';
 
 import Stripe from 'stripe';
 
-import { NotificationsService } from 'src/notifications/notifications.service';
+import { NotificationsService } from '../notifications/notifications.service.js';
 
 
 @Injectable()

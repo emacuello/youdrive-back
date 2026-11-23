@@ -1,13 +1,12 @@
-import { Car } from 'src/cars/entities/car.entity';
-import { User } from 'src/users/entities/user.entity';
+import { Car } from '../../cars/entities/car.entity.js';
+import { User } from '../../users/entities/user.entity.js';
 import {
   Column,
   Entity,
   JoinColumn,
   ManyToOne,
   OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+  PrimaryGeneratedColumn, type Relation } from 'typeorm';
 
 @Entity({
   name: 'addresses',
@@ -78,9 +77,9 @@ export class Address {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'user_id' })
-  user: User;
+  user: Relation<User>;
 
   @OneToOne(() => Car, (car) => car.address)
   @JoinColumn()
-  car: Car;
+  car: Relation<Car>;
 }

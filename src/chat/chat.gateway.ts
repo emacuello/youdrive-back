@@ -7,15 +7,15 @@ import {
   WebSocketServer,
   ConnectedSocket,
 } from '@nestjs/websockets';
-import { ChatService } from './chat.service';
-import { CreateChatDto } from './dto/create-chat.dto';
+import { ChatService } from './chat.service.js';
+import { CreateChatDto } from './dto/create-chat.dto.js';
 
 import { Server, Socket } from 'socket.io';
-import { MessageChat } from './interfaces/usersChat.interfaces';
-import { MailService } from 'src/mail/mail.service';
+import { MessageChat } from './interfaces/usersChat.interfaces.js';
+import { MailService } from '../mail/mail.service.js';
 
-const PORT = Number(process.env.PORT_WS) || 3002;
-@WebSocketGateway(PORT, {
+// Comparte el puerto del servidor HTTP: en el VPS, Caddy expone un solo upstream (wss://api-youdrive…/chat).
+@WebSocketGateway({
   namespace: 'chat',
   cors: '*',
   transports: ['websocket'],
@@ -39,12 +39,12 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   handleJoinRoom(client: Socket, room: string) {
     console.log(`El usuario ${client.id} se ha unido al chat ${room}`);
 
-    client.join(`${room}`);
+    void client.join(`${room}`);
   }
   @SubscribeMessage('event_leave')
   handleRoomLeave(client: Socket, room: string) {
     console.log(`El usuario ${client.id} ha dejado el chat ${room}`);
-    client.leave(`${room}`);
+    void client.leave(`${room}`);
   }
   // cambiar a mensaje de ser necesario
   @SubscribeMessage('posts')

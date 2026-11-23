@@ -4,20 +4,20 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { CreateRentalDto } from './dto/create-rental.dto';
-import { UpdateRentalDto } from './dto/update-rental.dto';
+import { CreateRentalDto } from './dto/create-rental.dto.js';
+import { UpdateRentalDto } from './dto/update-rental.dto.js';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Rental } from './entities/rental.entity';
+import { Rental } from './entities/rental.entity.js';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/entities/user.entity';
-import { Car } from 'src/cars/entities/car.entity';
-import { Posts } from 'src/posts/entities/post.entity';
+import { User } from '../users/entities/user.entity.js';
+import { Car } from '../cars/entities/car.entity.js';
+import { Posts } from '../posts/entities/post.entity.js';
 import { JwtService } from '@nestjs/jwt';
-import { JwtPayload } from './interfaces/payload.interfaces';
+import { JwtPayload } from './interfaces/payload.interfaces.js';
 import Stripe from 'stripe';
-import { Payment } from './interfaces/payment.interfaces';
-import { NotificationsService } from 'src/notifications/notifications.service';
-import { RentalPrev } from './entities/rentalPrev.entity';
+import { Payment } from './interfaces/payment.interfaces.js';
+import { NotificationsService } from '../notifications/notifications.service.js';
+import { RentalPrev } from './entities/rentalPrev.entity.js';
 
 @Injectable()
 export class RentalsService {

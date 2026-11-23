@@ -1,5 +1,5 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import * as leoProfanity from 'leo-profanity';
+import leoProfanity from 'leo-profanity';
 
 @Injectable()
 export class ProfanityFilterService implements OnModuleInit {

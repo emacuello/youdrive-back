@@ -1,12 +1,12 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateAddressDto } from './dto/create-address.dto';
-import { UpdateAddressDto } from './dto/update-address.dto';
+import { CreateAddressDto } from './dto/create-address.dto.js';
+import { UpdateAddressDto } from './dto/update-address.dto.js';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Address } from './entities/address.entity';
+import { Address } from './entities/address.entity.js';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/entities/user.entity';
-import { Car } from 'src/cars/entities/car.entity';
-import { geolocationService } from './geolocation.service';
+import { User } from '../users/entities/user.entity.js';
+import { Car } from '../cars/entities/car.entity.js';
+import { geolocationService } from './geolocation.service.js';
 
 @Injectable()
 export class AddressesService {

@@ -11,14 +11,14 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
-import { ReviewsService } from './reviews.service';
-import { CreateReviewDto } from './dto/create-review.dto';
-import { UpdateReviewDto } from './dto/update-review.dto';
+import { ReviewsService } from './reviews.service.js';
+import { CreateReviewDto } from './dto/create-review.dto.js';
+import { UpdateReviewDto } from './dto/update-review.dto.js';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { RolesGuard } from 'src/users/utils/roles.guard';
-import { Roles } from 'src/users/utils/roles.decorator';
-import { Role } from 'src/users/utils/roles.enum';
-import { CustomHeaderGuard } from 'src/middleweare/protectedEndpoints.guard';
+import { RolesGuard } from '../users/utils/roles.guard.js';
+import { Roles } from '../users/utils/roles.decorator.js';
+import { Role } from '../users/utils/roles.enum.js';
+import { CustomHeaderGuard } from '../middleweare/protectedEndpoints.guard.js';
 
 @ApiTags('REVIEWS')
 @Controller('reviews')

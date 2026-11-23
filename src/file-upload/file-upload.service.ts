@@ -4,16 +4,16 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { UploadApiResponse, v2 } from 'cloudinary';
-import toStream = require('buffer-to-stream');
+import toStream from 'buffer-to-stream';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Car } from 'src/cars/entities/car.entity';
+import { Car } from '../cars/entities/car.entity.js';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/entities/user.entity';
+import { User } from '../users/entities/user.entity.js';
 import {
   DetectLabelsCommand,
   DetectModerationLabelsCommand,
 } from '@aws-sdk/client-rekognition';
-import { rekognition } from '../config/config.awsRekognitionClient';
+import { rekognition } from '../config/config.awsRekognitionClient.js';
 
 @Injectable()
 export class FileUploadService {
@@ -134,7 +134,7 @@ export class FileUploadService {
     });
 
     return new Promise((resolve, reject) => {
-      v2.uploader.destroy(publicId, (error, result) => {
+      void v2.uploader.destroy(publicId, (error, result) => {
         if (error) reject(error);
         else resolve(result);
       });
@@ -155,7 +155,7 @@ export class FileUploadService {
     await this.carsRepository.save(car);
 
     return new Promise((resolve, reject) => {
-      v2.uploader.destroy(publicId, (error, result) => {
+      void v2.uploader.destroy(publicId, (error, result) => {
         if (error) reject(error);
         else resolve(result);
       });

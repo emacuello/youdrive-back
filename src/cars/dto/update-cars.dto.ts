@@ -1,5 +1,5 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { CreateCarDto } from './create-cars.dto';
+import { CreateCarDto } from './create-cars.dto.js';
 import { IsBoolean, IsOptional } from 'class-validator';
 
 export class UpdateCarDto extends PartialType(CreateCarDto) {

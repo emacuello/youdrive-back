@@ -9,13 +9,13 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
-import { AddressesService } from './addresses.service';
-import { CreateAddressDto } from './dto/create-address.dto';
-import { UpdateAddressDto } from './dto/update-address.dto';
+import { AddressesService } from './addresses.service.js';
+import { CreateAddressDto } from './dto/create-address.dto.js';
+import { UpdateAddressDto } from './dto/update-address.dto.js';
 import { ApiTags } from '@nestjs/swagger';
-import { RolesGuard } from 'src/users/utils/roles.guard';
-import { Role } from 'src/users/utils/roles.enum';
-import { Roles } from 'src/users/utils/roles.decorator';
+import { RolesGuard } from '../users/utils/roles.guard.js';
+import { Role } from '../users/utils/roles.enum.js';
+import { Roles } from '../users/utils/roles.decorator.js';
 
 @ApiTags('ADDRESSES')
 @Controller('addresses')

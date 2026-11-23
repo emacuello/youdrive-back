@@ -1,7 +1,7 @@
-// import { Car } from 'src/cars/entities/car.entity';
-import { Posts } from 'src/posts/entities/post.entity';
-import { User } from 'src/users/entities/user.entity';
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, /* OneToMany, */ PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from 'typeorm';
+// import { Car } from '../../cars/entities/car.entity.js';
+import { Posts } from '../../posts/entities/post.entity.js';
+import { User } from '../../users/entities/user.entity.js';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, /* OneToMany, */ PrimaryGeneratedColumn, Timestamp, UpdateDateColumn, type Relation } from 'typeorm';
 
 @Entity('reviews')
 export class Review {
@@ -22,12 +22,12 @@ export class Review {
 
   @ManyToOne(() => User, (user) => user.reviews, { eager: true })
   @JoinColumn({ name: 'userId' })
-  user: User;
+  user: Relation<User>;
 
 
   @ManyToOne(() => Posts, (posts) => posts.review, { eager: true})
   @JoinColumn({ name: 'postId' })
-  post: Posts;
+  post: Relation<Posts>;
 
 
 }

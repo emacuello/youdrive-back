@@ -13,7 +13,7 @@ import {
   UnauthorizedException,
   Query,
 } from '@nestjs/common';
-import { searchService } from './search.service';
+import { searchService } from './search.service.js';
 
 
 @Controller('searching')

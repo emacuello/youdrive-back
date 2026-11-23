@@ -1,10 +1,10 @@
 import { Controller, Get, Param, UseGuards } from '@nestjs/common';
-import { ChatService } from './chat.service';
+import { ChatService } from './chat.service.js';
 import { ApiTags } from '@nestjs/swagger';
-import { RolesGuard } from 'src/users/utils/roles.guard';
-import { Roles } from 'src/users/utils/roles.decorator';
-import { Role } from 'src/users/utils/roles.enum';
-import { CustomHeaderGuard } from 'src/middleweare/protectedEndpoints.guard';
+import { RolesGuard } from '../users/utils/roles.guard.js';
+import { Roles } from '../users/utils/roles.decorator.js';
+import { Role } from '../users/utils/roles.enum.js';
+import { CustomHeaderGuard } from '../middleweare/protectedEndpoints.guard.js';
 
 @ApiTags('CHAT')
 @Controller('chat')

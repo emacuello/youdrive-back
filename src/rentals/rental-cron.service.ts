@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MoreThan, Repository } from 'typeorm';
-import { Rental } from './entities/rental.entity';
-import { Car } from '../cars/entities/car.entity';
+import { Rental } from './entities/rental.entity.js';
+import { Car } from '../cars/entities/car.entity.js';
 
 @Injectable()
 export class RentalCronService {

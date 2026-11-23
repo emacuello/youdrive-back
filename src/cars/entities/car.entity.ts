@@ -1,6 +1,6 @@
-import { Address } from 'src/addresses/entities/address.entity';
-import { Posts } from 'src/posts/entities/post.entity';
-import { User } from 'src/users/entities/user.entity';
+import { Address } from '../../addresses/entities/address.entity.js';
+import { Posts } from '../../posts/entities/post.entity.js';
+import { User } from '../../users/entities/user.entity.js';
 import {
   Column,
   CreateDateColumn,
@@ -12,8 +12,7 @@ import {
   // OneToOne,
   PrimaryGeneratedColumn,
   Timestamp,
-  UpdateDateColumn,
-} from 'typeorm';
+  UpdateDateColumn, type Relation } from 'typeorm';
 
 @Entity({ name: 'cars' })
 export class Car {
@@ -64,16 +63,16 @@ export class Car {
   isDeleted: boolean;
 
   @OneToMany(() => Posts, (post) => post.car)
-  post: Posts[];
+  post: Relation<Posts[]>;
 
   // @OneToOne(() => Posts)
   // @JoinColumn()
   // post: Posts;
 
   @ManyToOne(() => User, (user) => user.car)
-  user: User;
+  user: Relation<User>;
 
   @OneToOne(() => Address, (address) => address.car)
-  address: Address;
+  address: Relation<Address>;
   rentals: any;
 }

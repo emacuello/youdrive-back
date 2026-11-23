@@ -1,8 +1,8 @@
 import { MailerService } from '@nestjs-modules/mailer';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Notification } from 'src/notifications/entities/notification.entity';
-import { Rental } from 'src/rentals/entities/rental.entity';
+import { Notification } from '../notifications/entities/notification.entity.js';
+import { Rental } from '../rentals/entities/rental.entity.js';
 import { Repository } from 'typeorm';
 
 @Injectable()

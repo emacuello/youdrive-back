@@ -5,21 +5,21 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { CreatePostDto } from './dto/create-post.dto';
-import { UpdatePostDto } from './dto/update-post.dto';
-import { Posts } from './entities/post.entity';
+import { CreatePostDto } from './dto/create-post.dto.js';
+import { UpdatePostDto } from './dto/update-post.dto.js';
+import { Posts } from './entities/post.entity.js';
 import { Repository } from 'typeorm';
-import { Car } from 'src/cars/entities/car.entity';
+import { Car } from '../cars/entities/car.entity.js';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CarsService } from 'src/cars/cars.service';
-import { User } from 'src/users/entities/user.entity';
-import { JwtPayload } from 'src/rentals/interfaces/payload.interfaces';
+import { CarsService } from '../cars/cars.service.js';
+import { User } from '../users/entities/user.entity.js';
+import { JwtPayload } from '../rentals/interfaces/payload.interfaces.js';
 import { JwtService } from '@nestjs/jwt';
-import { FiltersPosts } from './interfaces/filter.interfaces';
-import { Rental } from 'src/rentals/entities/rental.entity';
-import { NotificationsService } from 'src/notifications/notifications.service';
+import { FiltersPosts } from './interfaces/filter.interfaces.js';
+import { Rental } from '../rentals/entities/rental.entity.js';
+import { NotificationsService } from '../notifications/notifications.service.js';
 import Fuse from 'fuse.js';
-import { Role } from 'src/users/utils/roles.enum';
+import { Role } from '../users/utils/roles.enum.js';
 
 @Injectable()
 export class PostsService {

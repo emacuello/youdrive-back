@@ -7,10 +7,9 @@ import {
   ManyToMany,
   JoinTable,
   JoinColumn,
-  ManyToOne,
-} from 'typeorm';
-import { User } from '../../users/entities/user.entity';
-import { Posts } from 'src/posts/entities/post.entity';
+  ManyToOne, type Relation } from 'typeorm';
+import { User } from '../../users/entities/user.entity.js';
+import { Posts } from '../../posts/entities/post.entity.js';
 
 @Entity('rentals')
 export class Rental {
@@ -35,11 +34,11 @@ export class Rental {
     joinColumn: { name: 'rental_id', referencedColumnName: 'id' },
     inverseJoinColumn: { name: 'user_id', referencedColumnName: 'id' },
   })
-  users: User[];
+  users: Relation<User[]>;
 
   @ManyToOne(() => Posts)
   @JoinColumn()
-  posts: Posts;
+  posts: Relation<Posts>;
 
   @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true }) // Nueva columna para el costo total
   totalCost: number;

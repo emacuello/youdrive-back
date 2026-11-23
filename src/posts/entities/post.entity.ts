@@ -1,9 +1,9 @@
-import { Car } from 'src/cars/entities/car.entity';
-import { Chat } from 'src/chat/entities/chat.entity';
-import { Rental } from 'src/rentals/entities/rental.entity';
-import { Review } from 'src/reviews/entities/review.entity';
-import { User } from 'src/users/entities/user.entity';
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from 'typeorm';
+import { Car } from '../../cars/entities/car.entity.js';
+import { Chat } from '../../chat/entities/chat.entity.js';
+import { Rental } from '../../rentals/entities/rental.entity.js';
+import { Review } from '../../reviews/entities/review.entity.js';
+import { User } from '../../users/entities/user.entity.js';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn, type Relation } from 'typeorm';
 
 @Entity('posts')
 export class Posts {
@@ -23,18 +23,18 @@ export class Posts {
   isDeleted: boolean;
 
   @OneToMany(() => Chat, (chat) => chat.post)
-  room_id: Chat[];
+  room_id: Relation<Chat[]>;
 
   @ManyToOne(() => User, (user) => user.post)
   @JoinColumn({ name: 'userId' })
-  user: User;
+  user: Relation<User>;
 
   @OneToOne(() => Car, { cascade: true })
   @JoinColumn({ name: 'carId' })
-  car: Car;
+  car: Relation<Car>;
 
   @OneToMany(() => Rental, (rental) => rental.posts)
-  rentals: Rental[];
+  rentals: Relation<Rental[]>;
 
   @CreateDateColumn()
   created_at: Timestamp;
@@ -43,5 +43,5 @@ export class Posts {
   updated_at: Timestamp;
 
   @OneToMany(() => Review, (reviews) => reviews.post,{ cascade: true })
-  review: Review[];
+  review: Relation<Review[]>;
 }

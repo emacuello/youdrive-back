@@ -1,11 +1,10 @@
-import { User } from 'src/users/entities/user.entity';
+import { User } from '../../users/entities/user.entity.js';
 import {
   Column,
   Entity,
   JoinColumn,
   ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+  PrimaryGeneratedColumn, type Relation } from 'typeorm';
 
 @Entity({
   name: 'notifications',
@@ -25,5 +24,5 @@ export class Notification {
 
   @ManyToOne(() => User, (user) => user.notifications, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'user_id' })
-  user: User;
+  user: Relation<User>;
 }

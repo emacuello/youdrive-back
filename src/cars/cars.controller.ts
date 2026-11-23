@@ -1,10 +1,11 @@
 import { Controller, Get, Post, Body, Param, Delete, Query, ParseUUIDPipe, Patch, UseGuards} from '@nestjs/common';
-import { CarsService, FiltersCars } from './cars.service';
-import { CreateCarDto } from './dto/create-cars.dto';
+import { CarsService } from './cars.service.js';
+import type { FiltersCars } from './cars.service.js';
+import { CreateCarDto } from './dto/create-cars.dto.js';
 import { ApiTags } from '@nestjs/swagger';
-import { Role } from 'src/users/utils/roles.enum';
-import { Roles } from 'src/users/utils/roles.decorator';
-import { RolesGuard } from 'src/users/utils/roles.guard';
+import { Role } from '../users/utils/roles.enum.js';
+import { Roles } from '../users/utils/roles.decorator.js';
+import { RolesGuard } from '../users/utils/roles.guard.js';
 
 @ApiTags('CARS')
 @Roles(Role.User, Role.Admin, Role.SuperAdmin)
