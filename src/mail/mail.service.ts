@@ -428,7 +428,8 @@ export class MailService {
   async contactDevs(formData) {
     try {
       await this.mailerservice.sendMail({
-        to: 'proyectofinal.g3.henry@gmail.com',
+        // Destinatario del formulario de contacto: solo en el .env del server, no en el repo público.
+        to: process.env.CONTACT_EMAIL,
         subject: 'Contacto desde la web de You Drive',
         template: 'contact',
         context: {
